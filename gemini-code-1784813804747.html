@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altear AI - Test Dashboard</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --accent-color: #58a6ff;
+            --text-main: #c9d1d9;
+            --text-dim: #8b949e;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #ffffff;
+            font-size: 1.8rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.75rem;
+        }
+
+        p {
+            line-height: 1.6;
+            color: var(--text-dim);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background-color: rgba(88, 166, 255, 0.1);
+            color: var(--accent-color);
+            border: 1px solid rgba(88, 166, 255, 0.3);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: #010409;
+            color: #ffffff;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 6px;
+            background-color: #238636;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #2ea043;
+        }
+
+        .response-box {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #010409;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            min-height: 80px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <span class="status-badge">GitHub Pages & DNS OK</span>
+    <h1>Interface IA - Test de déploiement</h1>
+    <p>Ce site est hébergé sur GitHub Pages avec ton nom de domaine. Il permet de tester la communication avec le backend hébergé sur Oracle Cloud.</p>
+
+    <div class="form-group">
+        <label for="prompt">Envoyer une requête à l'IA :</label>
+        <input type="text" id="prompt" placeholder="Saisis ton message ici...">
+    </div>
+
+    <button onclick="sendTestRequest()">Envoyer la requête</button>
+
+    <div class="response-box" id="output">
+        Attente de la réponse de l'API...
+    </div>
+</div>
+
+<script>
+    async function sendTestRequest() {
+        const input = document.getElementById('prompt').value;
+        const output = document.getElementById('output');
+
+        if (!input) {
+            output.innerText = "Veuillez entrer un message.";
+            return;
+        }
+
+        output.innerText = "Connexion au serveur Oracle...";
+
+        try {
+            // Remplace l'URL ci-dessous par l'adresse IP publique ou le domaine de ton API Oracle
+            // Exemple: https://api.ton-domaine.com/generate
+            /*
+            const response = await fetch('https://TON-IP-ORACLE:8000/api', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt: input })
+            });
+            const data = await response.json();
+            output.innerText = data.result;
+            */
+
+            // Simulation locale temporaire :
+            setTimeout(() => {
+                output.innerText = `[Simulé] Message reçu : "${input}"\n\nConfigure l'URL de ton instance Oracle dans le script pour connecter l'IA réelle !`;
+            }, 800);
+
+        } catch (error) {
+            output.innerText = "Erreur de connexion avec l'API Oracle (Vérifie le CORS et le HTTPS).";
+        }
+    }
+</script>
+
+</body>
+</html>
