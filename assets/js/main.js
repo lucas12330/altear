@@ -123,8 +123,10 @@
   const updateClock = () => {
     clock.textContent = new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
   };
-  updateClock();
-  setInterval(updateClock, 30000);
+  if (clock) {
+    updateClock();
+    setInterval(updateClock, 30000);
+  }
 
   let typingRun = 0;
   const typeTerminal = async (run, instant = false) => {
@@ -259,6 +261,7 @@
     if (!STATUS.enabled) return;
     const pill = $('[data-status]');
     const label = $('[data-status-text]');
+    if (!pill || !label) return;
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), STATUS.timeoutMs);
     let online = false;
