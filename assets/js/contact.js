@@ -2,7 +2,7 @@
 // dans sa base. Désactivé tant que le portail n'est pas en ligne (Cloudflare Access bloque encore l'API).
 (() => {
   'use strict';
-  const CONTACT = { enabled: false, url: 'https://bureau.altear.tech/api/contact', timeoutMs: 10000 };
+  const CONTACT = { enabled: true, url: 'https://bureau.altear.tech/api/contact', timeoutMs: 10000 };
 
   const form = document.querySelector('[data-contact]');
   if (!form) return;

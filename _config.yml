@@ -1,0 +1,8 @@
+# GitHub Pages : ces fichiers restent dans le dépôt mais ne sont pas publiés comme pages du site.
+exclude:
+  - LICENCES.md
+  - CONTRIBUTING.md
+  - CONTRIBUTEURS.md
+  - REUSE.toml
+  - LICENSES
+  - _outils

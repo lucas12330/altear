@@ -4,7 +4,7 @@
 
   // État du PC affiché en haut de page. À activer quand bureau.altear.tech/api/etat sera public
   // (portail en ligne) : tant que Cloudflare Access protège tout le sous-domaine, la requête échouerait.
-  const STATUS = { enabled: false, url: 'https://bureau.altear.tech/api/etat', timeoutMs: 4000 };
+  const STATUS = { enabled: true, url: 'https://bureau.altear.tech/api/etat', timeoutMs: 4000 };
 
   const root = document.documentElement;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
